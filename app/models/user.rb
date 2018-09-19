@@ -7,6 +7,7 @@ class User < ApplicationRecord
 end
 
 class Expert < User
+  has_many :campaigns
 end
 
 class Novice < User
