@@ -1,5 +1,11 @@
 require 'test_helper'
 
+# class UserTest < ActiveSupport::TestCase
+#   context 'associations' do
+#     should have_many(:campaigns)
+#   end
+# end
+
 class NoviceTest < ActiveSupport::TestCase
   def setup
     # @expert = users(:expert)
@@ -26,9 +32,8 @@ class NoviceTest < ActiveSupport::TestCase
     assert_not @novice.valid?
   end
 
-
   # context 'associations' do
-  #   should have_many(:campaigns)
+  #   should_ have_many(:campaigns)
   # end
 
 end
@@ -62,4 +67,5 @@ class ExpertTest < ActiveSupport::TestCase
   # context 'associations' do
   #   should have_many(:campaigns)
   # end
+
 end
