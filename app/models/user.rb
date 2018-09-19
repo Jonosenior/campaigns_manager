@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, :type, presence: true
+  has_many :todo_lists
 end
 
 class Expert < User
