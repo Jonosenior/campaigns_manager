@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20180919101034) do
     t.string "estimated_duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_campaigns_on_user_id"
+    t.integer "expert_id"
+    t.index ["expert_id"], name: "index_campaigns_on_expert_id"
   end
 
   create_table "users", force: :cascade do |t|
