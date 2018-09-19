@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :username, :type, presence: true
   has_many :todo_lists
   has_many :todos
+  enum status: [:qualified, :not_qualified, :banned]
 end
 
 class Expert < User
