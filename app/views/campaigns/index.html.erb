@@ -1,8 +1,8 @@
 <h1>Campaigns Index</h1>
 
 <% @campaigns.each do |campaign| %>
-  <h2><%= campaign.title %></h2>
-  <p> <%= campaign.tags %></p>
+  <h2><%= link_to campaign.title, campaign %></h2>
+  <p>Tags: <%= campaign.tags %></p>
   <p>Created by <%= campaign.expert.username %> </p>
-  <li><%= link_to "Edit", edit_campaign_path(campaign.id) %></li>
+  <%= link_to "Edit", edit_campaign_path(campaign.id) %>
 <% end %>

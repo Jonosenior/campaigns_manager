@@ -17,6 +17,7 @@ class CampaignsController < ApplicationController
 
   def show
     @campaign = Campaign.find(params[:id])
+    @todo_lists = @campaign.todo_lists
   end
 
   def create

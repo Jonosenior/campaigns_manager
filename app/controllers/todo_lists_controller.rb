@@ -5,9 +5,16 @@ class TodoListsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @campaign = Campaign.find(params[:id])
-    @todo_list = @campaign.todo_lists.create(todo_list_params)
+    @campaign = Campaign.find(params[:campaign_id])
+    @todo_list = @campaign.todo_lists.new(todo_list_params)
+    # binding.pry
+    if @todo_list.save
+      flash[:success] = "Todo List added!"
+      redirect_to @campaign
+    else
+      flash.now[:danger] = "Invalid information."
+      render 'new'
+    end
   end
 
   def new
@@ -19,7 +26,7 @@ class TodoListsController < ApplicationController
   private
 
   def todo_list_params
-    params.require(:todo_list).permit(:id, :title)
+    params.require(:todo_list).permit(:id, :title, :user_id)
                                       # todo_lists_attributes:[:id, :title, :_destroy])
   end
 end

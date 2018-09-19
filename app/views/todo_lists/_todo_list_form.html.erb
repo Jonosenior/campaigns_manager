@@ -2,8 +2,9 @@
   <div class="row">
       <div class="col-md-offset-4 col-md-4">
         <h1><%= form_type %> Todo List</h1><br>
-          <%= form_for @todo_list do |f| %>
+          <%= form_for [@campaign, TodoList.new]  do |f| %>
             <%= f.text_field :title, id: "title", placeholder: "Title", class: "form-control input-sm chat-input"%><br>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
             <%= f.submit "Submit", class: "btn btn-primary btn-md" %>
           <% end %>
         </div>
