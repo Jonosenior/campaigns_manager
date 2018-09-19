@@ -6,15 +6,7 @@
           <%= f.text_field :title, id: "title", placeholder: "Title", class: "form-control input-sm chat-input"%><br>
           <%= f.text_field :tags, id: "tags", placeholder: "Comma, Seperated, Tags", class: "form-control input-sm chat-input"%><br>
           <%= f.text_field :estimated_duration, id: "estimated_duration", placeholder: "Estimated duration", class: "form-control input-sm chat-input"%><br>
-            <h5>Add Todo Lists</h5>
-            <%= f.fields_for :todo_lists do |todo_list_form| %>
-              <%= dish_form.text_field :title, placeholder: "Todo List title", class: "form-control input-sm chat-input" %><br>
-              <%= dish_form.label :_destroy %>
-              <%= dish_form.check_box :_destroy %>
-            <% end %>
-
-            <%= f.submit "Submit", class: "btn btn-primary btn-md" %>
-
+          <%= f.submit "Submit", class: "btn btn-primary btn-md" %>
           <% end %>
       </div>
     </div>

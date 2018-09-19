@@ -1,2 +1,2 @@
-<h1>TodoLists#new</h1>
-<p>Find me in app/views/todo_lists/new.html.erb</p>
+<% provide(:title, "New Todo List") %>
+<%= render 'todo_list_form', form_type: "New" %>
