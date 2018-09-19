@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   validates :username, :type, presence: true
   has_many :todo_lists
+  has_many :todos
 end
 
 class Expert < User
