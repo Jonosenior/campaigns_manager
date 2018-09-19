@@ -2,12 +2,16 @@
   <div class="col-lg-5 col-lg-offset-3">
 
     <h1><%= @campaign.title %></h1>
-    <p><%= @campaign.tags %> </p>
-    <p><%= @campaign.estimated_duration %> </p>
+    <p>Tags: <%= @campaign.tags %> </p>
+    <p>Estimated duration: <%= @campaign.estimated_duration %> </p>
     <u>Todo Lists</u>
-    <ul> <% @todo_lists.each do |t| %>
-      <li><b><%= t.title %></li>
-    </ul>
+    <% if @todo_lists %>
+      <ul><% @todo_lists.each do |t| %>
+        <li><b><%= t.title %></li>
+          <% end %>
+      </ul>
+    <% else %>
+      <p>No Todo Lists yet</p>
     <% end %>
 
     <%#= link_to 'Edit', edit_restaurant_path(@restaurant) %> |

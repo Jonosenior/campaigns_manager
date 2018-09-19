@@ -1,3 +1,5 @@
+require 'pry'
+
 class CampaignsController < ApplicationController
   def index
     @campaigns = Campaign.all
@@ -17,7 +19,9 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.new(campaign_params)
+    @user = current_user
+    @campaign = @user.campaigns.new(campaign_params)
+    # binding.pry
     if @campaign.save
       flash[:success] = "Campaign added!"
       redirect_to @campaign
