@@ -3,8 +3,6 @@
 <% @campaigns.each do |campaign| %>
   <h2><%= campaign.title %></h2>
   <p> <%= campaign.tags %></p>
-  <p>Created by <%= campaign.expert.email %> </p>
-  <% if can? :update, :campaigns %>
-    <li><%= link_to "Edit", edit_campaign_path(campaign.id) %></li>
-  <% end %>
+  <p>Created by <%= campaign.expert.username %> </p>
+  <li><%= link_to "Edit", edit_campaign_path(campaign.id) %></li>
 <% end %>

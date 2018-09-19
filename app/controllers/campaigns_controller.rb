@@ -21,7 +21,6 @@ class CampaignsController < ApplicationController
   def create
     @user = current_user
     @campaign = @user.campaigns.new(campaign_params)
-    # binding.pry
     if @campaign.save
       flash[:success] = "Campaign added!"
       redirect_to @campaign
@@ -29,6 +28,23 @@ class CampaignsController < ApplicationController
       flash.now[:danger] = "Invalid information."
       render 'new'
     end
+  end
+
+  def update
+    @campaign = Campaign.find(params[:id])
+    if @campaign.update(campaign_params)
+      flash[:success] = "Campaign updated!"
+      redirect_to @campaign
+    else
+      flash.now[:danger] = "Invalid information."
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Campaign.find(params[:id]).destroy
+    flash[:success] = "Restaurant deleted."
+    redirect_to root_path
   end
 
   private

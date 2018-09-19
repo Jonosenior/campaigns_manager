@@ -1,7 +1,7 @@
 <div class="container" id="form_container">
   <div class="row">
       <div class="col-md-offset-4 col-md-4">
-        <h1><%= form_type %>Campaign </h1><br>
+        <h1><%= form_type %> Campaign</h1><br>
           <%= form_for(@campaign) do |f| %>
           <%= f.text_field :title, id: "title", placeholder: "Title", class: "form-control input-sm chat-input"%><br>
           <%= f.text_field :tags, id: "tags", placeholder: "Comma, Seperated, Tags", class: "form-control input-sm chat-input"%><br>
