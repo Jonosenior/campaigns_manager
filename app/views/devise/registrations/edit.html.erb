@@ -36,6 +36,15 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="field">
+    <%= f.radio_button(:status, "qualified") %>
+    <%= f.label(:status, "qualified") %>
+    <%= f.radio_button(:status, "not_qualified") %>
+    <%= f.label(:status, "not_qualified") %>
+    <%= f.radio_button(:status, "banned") %>
+    <%= f.label(:status, "banned") %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

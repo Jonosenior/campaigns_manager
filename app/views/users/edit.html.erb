@@ -1,0 +1,23 @@
+<div class="container" id="form_container">
+  <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <h1>Edit User</h1><br>
+
+          <%= form_for(@user) do |f| %>
+
+            <div class="field">
+              <%= f.radio_button(:status, "qualified") %>
+              <%= f.label(:status, "qualified") %>
+              <%= f.radio_button(:status, "not_qualified") %>
+              <%= f.label(:status, "not_qualified") %>
+              <%= f.radio_button(:status, "banned") %>
+              <%= f.label(:status, "banned") %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Update" %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+</div>
