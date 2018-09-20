@@ -33,12 +33,22 @@
     <%= f.label(:type, "Expert") %>
   </div>
 
+  <div class="field">
+    <%= f.label 'service (only for Experts)' %><br />
+    <%= f.text_field :service, autofocus: true, autocomplete: "service" %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'profession (only for Experts)' %><br />
+    <%= f.text_field :profession, autofocus: true, autocomplete: "profession" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div><br />
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>
 
 <script>
   $("input[type='check_box']#type").on('change', function(){
