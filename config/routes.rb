@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root to: 'campaigns#index'
   resources :campaigns do
     resources :todo_lists, except: :index
+    resources :comments, only: [:new, :create]
   end
   devise_for :users
   scope '/expert' do
     resources :novices, only: [:index, :edit, :update], controller: 'users', type: 'Novice'
   end
-  resources :comments, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

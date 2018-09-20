@@ -22,8 +22,7 @@
 
     <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
     <%= link_to 'Add Todo List', new_campaign_todo_list_path(@campaign) %> |
-    <%= link_to "Add comment", new_comment_path(@campaign) %> |
-    <%= link_to 'Home', root_path %> |
+    <%= link_to "Add comment", new_campaign_comment_path(@campaign) %> |
     <%= link_to 'Delete', campaign_path(@campaign), method: :delete %>
 
   </div>
