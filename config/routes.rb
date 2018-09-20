@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :comments, only: [:new, :create]
   get 'users/index'
-
   root to: 'campaigns#index'
   resources :campaigns do
     resources :todo_lists, except: :index
