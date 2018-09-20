@@ -1,7 +1,5 @@
 class User < ApplicationRecord
-  # before_save :default_type
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # before_save :default_status
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -16,4 +14,11 @@ class Expert < User
 end
 
 class Novice < User
+  before_save :ensure_expert_fields_blank
+
+  private
+  def ensure_expert_fields_blank
+    self.profession = nil
+    self.service = nil
+  end
 end
