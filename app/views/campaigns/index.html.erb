@@ -4,5 +4,8 @@
   <h2><%= link_to campaign.title, campaign %></h2>
   <p>Tags: <%= campaign.tags %></p>
   <p>Created by <%= campaign.expert.username %> </p>
-  <%= link_to "Edit", edit_campaign_path(campaign.id) %>
+
+  <% if can? :update, Campaign %>
+    <%= link_to "Edit", edit_campaign_path(campaign.id) %>
+  <% end %>
 <% end %>

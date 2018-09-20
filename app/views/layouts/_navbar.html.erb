@@ -4,7 +4,7 @@
   <% if can? :create, Campaign %>
     <%= link_to 'Create campaign', new_campaign_path %>
   <% end %>
-  <% if can? :manage, Novice %>
+  <% if can? :update, Novice %>
     <%= link_to 'Authorize Novice users', novices_path %>
   <% end %>
 <% else %>

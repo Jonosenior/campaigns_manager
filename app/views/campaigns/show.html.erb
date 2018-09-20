@@ -20,10 +20,17 @@
     <% end %>
 
 
-    <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
-    <%= link_to 'Add Todo List', new_campaign_todo_list_path(@campaign) %> |
-    <%= link_to "Add comment", new_campaign_comment_path(@campaign) %> |
-    <%= link_to 'Delete', campaign_path(@campaign), method: :delete %>
-
+    <% if can? :update, Campaign %>
+      <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+    <% end %>
+    <% if can? :create, Comment %>
+      <%= link_to "Add comment", new_campaign_comment_path(@campaign) %> |
+    <% end %>
+    <% if can? :delete, Campaign %>
+      <%= link_to 'Delete', campaign_path(@campaign), method: :delete %>
+    <% end %>
+    <% if can? :create, TodoList %>
+      <%= link_to 'Add Todo List', new_campaign_todo_list_path(@campaign) %> |
+    <% end %>
   </div>
 </div>
