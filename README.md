@@ -20,3 +20,4 @@ This is a campaign manager. Users can create new campaigns, add todo lists to th
 - Adding some JS to make the forms dynamic would be nice (eg creating new Todo fields without navigating to a whole new page).
 - Deployment to Heroku (when it's finished).
 - A seeded database (so users can explore it with full functionality).
+- Currently the User sign up form contains all User attributes for both kinds of User, but two of those are only appropriate for Experts. It should be possible to use JS to dynamically hide those fields depending on which User type button the user selects. 
