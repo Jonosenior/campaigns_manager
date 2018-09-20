@@ -10,12 +10,19 @@
         <li><b><%= t.title %></li>
           <% end %>
       </ul>
-    <% else %>
-      <p>No Todo Lists yet</p>
     <% end %>
+    <u>Comments</u>
+    <% if @comments %>
+      <ul><% @comments.each do |c| %>
+        <li><b><%= c.title %></li>
+          <% end %>
+      </ul>
+    <% end %>
+
 
     <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
     <%= link_to 'Add Todo List', new_campaign_todo_list_path(@campaign) %> |
+    <%= link_to "Add comment", new_comment_path(@campaign) %> |
     <%= link_to 'Home', root_path %> |
     <%= link_to 'Delete', campaign_path(@campaign), method: :delete %>
 

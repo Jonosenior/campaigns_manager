@@ -10,12 +10,12 @@ class CampaignsController < ApplicationController
   def new
     @campaign = Campaign.new
     @todo_lists = @campaign.todo_lists
-    binding.pry
   end
 
   def show
     @campaign = Campaign.find(params[:id])
     @todo_lists = @campaign.todo_lists
+    @comments = @campaign.comments
   end
 
   def create

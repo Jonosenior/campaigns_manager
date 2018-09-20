@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments, only: [:new, :create]
   get 'users/index'
   root to: 'campaigns#index'
   resources :campaigns do
@@ -9,5 +8,6 @@ Rails.application.routes.draw do
   scope '/expert' do
     resources :novices, only: [:index, :edit, :update], controller: 'users', type: 'Novice'
   end
+  resources :comments, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
