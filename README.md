@@ -7,7 +7,7 @@ This is a campaign manager. Users can create new campaigns, add todo lists to th
 
 - For the User model, I went with Single Table Inheritance (STI). This means there is a single 'User' table in the database, and a User model, and models for Expert and Novice that inherit from User. The advantages of STI are saved DB space (as there's only one table), it's DRY, and it's easy to implement. It's appropriate for situations like this where most of the attributes between the user types are shared (the attributes that Novice doesn't hold are stored as nil in the database).
 
-Other options would have been to use Rolify (I decided against as it didn't seem possible to allow different attributes based on the User role), or to use Polymorphic Associations with separate User tables for each type of User. I decided against the latter as it seemed overkill in this context.
+- Other options for the User functionality would have been to use Rolify (I decided against as it didn't seem possible to allow different attributes based on the User role), or to use Polymorphic Associations with separate User tables for each type of User. I decided against the latter as it seemed overkill in this context.
 
  - I used Devise to handle authentication and CanCanCan to handle authorization.
 
