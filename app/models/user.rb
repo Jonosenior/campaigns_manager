@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :username, :type, presence: true
   has_many :todo_lists
   has_many :todos
+  has_many :comments
   enum status: [:qualified, :not_qualified, :banned]
 end
 
