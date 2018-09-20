@@ -26,9 +26,22 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.radio_button(:type, "Novice") %>
+    <%= f.label(:type, "Novice") %>
+    <%= f.radio_button(:type, "Expert") %>
+    <%= f.label(:type, "Expert") %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
-  </div>
+  </div><br />
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<script>
+  $("input[type='check_box']#type").on('change', function(){
+    $('#expert-fields').toggle();
+  });
+</script>
