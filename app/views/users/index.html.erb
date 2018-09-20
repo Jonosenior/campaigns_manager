@@ -1,13 +1,13 @@
-<h1>All Users</h1>
+<h1>All novices</h1>
 <ul>
-  <% @users.each do |user| %>
-    <li><%= user.username %></li>
-    <li><%= user.email %></li>
-    <li><%= user.type %></li>
-    <li><%= user.status %></li>
-    <li><%= user.created_at %></li>
-    <li><%= user.profession if user.profession %></li>
-    <li><%= user.service if user.service %></li>
-    <%= link_to 'Edit user', edit_user_path(user) %>
+  <% @novices.each do |novice| %>
+    <li><%= novice.username %></li>
+    <li><%= novice.email %></li>
+    <li><%= novice.type %></li>
+    <li><%= novice.status %></li>
+    <li><%= novice.created_at %></li>
+    <li><%= novice.profession if novice.profession %></li>
+    <li><%= novice.service if novice.service %></li>
+    <%= link_to 'Edit novice', edit_novice_path(novice) %>
   <% end %>
 </ul>
