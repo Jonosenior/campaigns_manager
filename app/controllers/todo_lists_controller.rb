@@ -7,7 +7,6 @@ class TodoListsController < ApplicationController
   def create
     @campaign = Campaign.find(params[:campaign_id])
     @todo_list = @campaign.todo_lists.new(todo_list_params)
-    # binding.pry
     if @todo_list.save
       flash[:success] = "Todo List added!"
       redirect_to @campaign
@@ -20,7 +19,6 @@ class TodoListsController < ApplicationController
   def new
     @campaign = Campaign.find(params[:campaign_id])
     @todo_list = @campaign.todo_lists.new
-    # binding.pry
   end
 
   private

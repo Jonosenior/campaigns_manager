@@ -1,4 +1,4 @@
-require 'pry'
+equire 'pry'
 
 class CampaignsController < ApplicationController
   def index
@@ -12,7 +12,6 @@ class CampaignsController < ApplicationController
   def new
     @campaign = Campaign.new
     @todo_lists = @campaign.todo_lists
-    binding.pry
   end
 
   def show

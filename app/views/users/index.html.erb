@@ -6,8 +6,6 @@
     <li><%= novice.type %></li>
     <li><%= novice.status %></li>
     <li><%= novice.created_at %></li>
-    <li><%= novice.profession if novice.profession %></li>
-    <li><%= novice.service if novice.service %></li>
-    <%= link_to 'Edit novice', edit_novice_path(novice) %>
+    <%= link_to 'Edit novice\'s status', edit_novice_path(novice) %><br><br>
   <% end %>
 </ul>
