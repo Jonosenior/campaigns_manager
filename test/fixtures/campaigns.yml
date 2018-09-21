@@ -1,6 +1,5 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 marketing:
   title: Marketing
   tags: social, priority
   estimated_duration: 3 months
+  expert: expert
