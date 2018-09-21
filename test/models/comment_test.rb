@@ -6,6 +6,8 @@ class CommentTest < ActiveSupport::TestCase
     @no_user_comment = comments(:no_user)
     @todo_list_comment = comments(:todo_list)
     @parentless_comment = comments(:parentless)
+    @double_parent_comment = comments(:double_parent)
+
   end
 
   test 'campaign comment should be valid' do
@@ -30,7 +32,8 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   test 'should not have both campaign and todolist' do
-    assert_not @double_parent.valid?
+  #   binding.pry
+    assert_not @double_parent_comment.valid?
   end
 
 end

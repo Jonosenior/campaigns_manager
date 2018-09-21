@@ -15,3 +15,9 @@ todo_list:
 parentless:
   title: Pretty good!
   user: expert
+
+double_parent:
+  title: Pretty good!
+  user: expert
+  todo_list: marketing_todos
+  campaign: marketing
