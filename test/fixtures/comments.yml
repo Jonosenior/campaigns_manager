@@ -1,7 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+campaign:
+  title: This needs some work
+  campaign: marketing
+  user: expert
 
-one:
-  title: MyString
+no_user:
+  title: This needs some work
+  campaign: marketing
 
-two:
-  title: MyString
+todo_list:
+  title: Pretty good!
+  todo_list: marketing_todos
+  user: expert
+
+parentless:
+  title: Pretty good!
+  user: expert
