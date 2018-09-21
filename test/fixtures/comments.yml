@@ -1,23 +1,17 @@
 campaign:
   title: This needs some work
-  campaign: marketing
+  commentable: marketing (Campaign)
   user: expert
 
 no_user:
   title: This needs some work
-  campaign: marketing
+  commentable: marketing (Campaign)
 
 todo_list:
   title: Pretty good!
-  todo_list: marketing_todos
+  commentable: marketing_todos (TodoList)
   user: expert
 
 parentless:
   title: Pretty good!
   user: expert
-
-double_parent:
-  title: Pretty good!
-  user: expert
-  todo_list: marketing_todos
-  campaign: marketing
