@@ -1,7 +1,6 @@
 class TodoListsController < ApplicationController
   def show
-    @campaign = Campaign.find(params[:id])
-    @todo_lists = @campaign.todo_lists
+    @todo_list = TodoList.find(params[:id])
   end
 
   def create

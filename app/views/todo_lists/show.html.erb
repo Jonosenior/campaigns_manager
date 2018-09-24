@@ -1,2 +1,17 @@
-<h1>TodoLists#show</h1>
-<p>Find me in app/views/todo_lists/show.html.erb</p>
+<div class="container">
+  <div class="col-lg-5 col-lg-offset-3">
+
+    <h1><%= @todo_list.title %></h1>
+    <p>For: <%= @todo_list.campaign.title %> </p>
+    <u>Todos</u>
+      <ul><% @todo_list.todos.each do |t| %>
+        <li><%= t.title %></li>
+          <% end %>
+      </ul>
+    <u>Comments</u>
+    <ul><% @todo_list.comments.each do |c| %>
+      <li><%= c.title %> (<%= c.user.username.capitalize %>)</li>
+        <% end %>
+    </ul>
+  </div>
+</div>

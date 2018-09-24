@@ -1,4 +1,4 @@
-<div class="container", id="form_container">
+<div class="container">
   <div class="col-lg-5 col-lg-offset-3">
 
     <h1><%= @campaign.title %></h1>
@@ -7,14 +7,14 @@
     <u>Todo Lists</u>
     <% if @todo_lists %>
       <ul><% @todo_lists.each do |t| %>
-        <li><b><%= t.title %></li>
+        <li><%= link_to t.title, [t.campaign, t] %></li>
           <% end %>
       </ul>
     <% end %>
     <u>Comments</u>
     <% if @comments %>
       <ul><% @comments.each do |c| %>
-        <li><b><%= c.title %></li>
+        <li><%= c.title %> (<%= c.user.username %>)</li>
           <% end %>
       </ul>
     <% end %>
