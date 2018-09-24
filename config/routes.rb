@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   get 'users/index'
   root to: 'campaigns#index'
   resources :campaigns do
-    resources :todo_lists, except: :index
-    resources :comments, only: [:new, :create]
+    resources :todo_lists, except: :index do
+      resources :comments, only: [:create, :new]
+    end
+    resources :comments, only: [:create, :new]
   end
   devise_for :users
   scope '/expert' do
