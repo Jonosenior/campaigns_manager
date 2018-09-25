@@ -8,10 +8,7 @@
         <li><%= t.title %></li>
           <% end %>
       </ul>
-    <u>Comments</u>
-    <ul><% @todo_list.comments.each do |c| %>
-      <li><%= c.title %> (<%= c.user.username.capitalize %>)</li>
-        <% end %>
-    </ul>
+    <%= render partial: 'comments/comments', locals: { commentable: @todo_list } %>
+    <%= render partial: 'comments/form', locals: { commentable: @todo_list } %>
   </div>
 </div>
