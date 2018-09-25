@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(comment_params)
     if @comment.save
       flash[:success] = "Comment added!"
-      redirect_to @commentable
+      redirect_to parent_campaign
     else
       flash.now[:danger] = "Invalid information."
       render 'new'
@@ -16,5 +16,9 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit(:id, :title, :user_id)
+  end
+
+  def parent_campaign
+    @commentable.instance_of?(Campaign) ? @commentable : @commentable.campaign
   end
 end
