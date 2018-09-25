@@ -4,7 +4,7 @@ class CommentTest < ActiveSupport::TestCase
   def setup
     @campaign_comment = comments(:campaign)
     @todo_list_comment = comments(:todo_list)
-    @parentless_comment = comments(:parentless)    
+    @parentless_comment = comments(:parentless)
   end
 
   test 'campaign comment should be valid' do
@@ -28,10 +28,5 @@ class CommentTest < ActiveSupport::TestCase
   test 'should require either campaign or todo list' do
     assert_not @parentless_comment.valid?
   end
-
-  # test 'should not have both campaign and todolist' do
-  # #   binding.pry
-  #   assert_not @double_parent_comment.valid?
-  # end
 
 end
