@@ -1,4 +1,6 @@
 class CampaignsController < ApplicationController
+  load_and_authorize_resource
+  
   def index
     @campaigns = Campaign.all
   end
