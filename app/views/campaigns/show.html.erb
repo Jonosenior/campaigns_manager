@@ -11,20 +11,12 @@
           <% end %>
       </ul>
     <% end %>
-    <u>Comments</u>
-    <% if @comments %>
-      <ul><% @comments.each do |c| %>
-        <li><%= c.title %> (<%= c.user.username %>)</li>
-          <% end %>
-      </ul>
+    <%= render partial: 'comments/comments', locals: { commentable: @campaign } %>
+    <% if can? :create, Comment %>
+      <%= render partial: 'comments/form', locals: { commentable: @campaign } %>
     <% end %>
-
-
     <% if can? :update, Campaign %>
       <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
-    <% end %>
-    <% if can? :create, Comment %>
-      <%= link_to "Add comment", new_campaign_comment_path(@campaign) %> |
     <% end %>
     <% if can? :delete, Campaign %>
       <%= link_to 'Delete', campaign_path(@campaign), method: :delete %>
