@@ -1,0 +1,5 @@
+<u>Comments</u>
+  <ul><% commentable.comments.each do |c| %>
+    <li><%= c.title %> (<%= c.user.username %>)</li>
+      <% end %>
+  </ul>
