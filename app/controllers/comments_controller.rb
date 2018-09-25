@@ -1,15 +1,12 @@
 class CommentsController < ApplicationController
-  def new
-    @campaign = Campaign.find(params[:campaign_id])
-    @comment = @campaign.comments.new
-  end
-
   def create
-    @campaign = Campaign.find(params[:campaign_id])
-    @comment = @campaign.comments.new(comment_params)
+    commentable_type = params[:comment][:commentable_type]
+    commentable_id = params[:comment][:commentable_id]
+    @commentable = commentable_type.constantize.find(commentable_id)
+    @comment = @commentable.comments.new(comment_params)
     if @comment.save
       flash[:success] = "Comment added!"
-      redirect_to @campaign
+      redirect_to @commentable
     else
       flash.now[:danger] = "Invalid information."
       render 'new'
