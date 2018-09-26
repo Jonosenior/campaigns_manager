@@ -29,6 +29,6 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'Campaign.count', 1 do
       post campaigns_path, params: { campaign: { title: 'Marketing', tags: 'social, priority', estimated_duration: '3 months'}}
     end
-    assert_redirected_to campaign_path(id: 344023403)
+    assert_redirected_to campaign_url(Campaign.last)
   end
 end
