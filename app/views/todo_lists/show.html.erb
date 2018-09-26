@@ -8,7 +8,10 @@
         <li><%= t.title %></li>
           <% end %>
       </ul>
+
     <%= render partial: 'comments/comments', locals: { commentable: @todo_list } %>
-    <%= render partial: 'comments/form', locals: { commentable: @todo_list } %>
+    <% if can? :create, Comment %>
+      <%= render partial: 'comments/form', locals: { commentable: @todo_list } %>
+    <% end %>
   </div>
 </div>
