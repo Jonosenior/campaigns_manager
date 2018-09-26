@@ -9,15 +9,21 @@ This is a campaign manager. Users can create new campaigns, add todo lists to th
 
 - Other options for the User functionality would have been to use Rolify (I decided against as it didn't seem possible to allow different attributes based on the User role), or to use Polymorphic Associations with separate User tables for each type of User. I decided against the latter as it seemed overkill in this context.
 
- - I used Devise to handle authentication and CanCanCan to handle authorization.
+- I used Devise to handle authentication and CanCanCan to handle authorization.
+
+- Comments were implemented using a polymorphic association - Campaigns and TodoLists both `has_many :comments as: :commentable`. The routes for comments are not nested under their commentable resource; I felt this would be too complicated, since the routes for TodoLists are themselves nested under Campaigns. It's usually bad form to nest a route three levels deep (the paths become insanely complicated), so I avoided doing so.
 
 ## Remaining Tasks / Things to improve
 
 - Clearly the testing coverage is very poor (only a few model tests at the moment). I will add more tests when I have time.
 - Bootstrap to make the frontend look passable.
 - The TodoList / Todo functionality is messy. Users can add Todo Lists, but at the moment they can't add Todos themselves. I'll implement this with a nested form (which is not that complicated), so the TodoList and the individual Todos can be added at the same time.
-- The routes and associations for the Comments are not yet fully functional. At the moment users can only comment on Campaigns (when the project is finished, they will also be able to comment on certain Todo Lists). I need to experiment with this, but it's possible that the structure is currently wrong, and that I need to use polymorphic associations so that comments can be left on more than one type of thing (Todo Lists AND Campaigns). Ran out of time on this one.
 - Adding some JS to make the forms dynamic would be nice (eg creating new Todo fields without navigating to a whole new page).
 - Deployment to Heroku (when it's finished).
 - A seeded database (so users can explore it with full functionality).
-- Currently the User sign up form contains all User attributes for both kinds of User, but two of those are only appropriate for Experts. It should be possible to use JS to dynamically hide those fields depending on which User type button the user selects. 
+- Currently the User sign up form contains all User attributes for both kinds of User, but two of those are only appropriate for Experts. It should be possible to use JS to dynamically hide those fields depending on which User type button the user selects.
+
+## Issues and Solutions
+
+- **Issue**: A weird error was thrown when I tried to login or logout: 'Routing Error: uninitialized constant Sessions'. This seemed to be an issue with Devise rather than any code in my application.
+    - **Solution**: The problem was caused by the `load_and_authorize_resource` line in my ApplicationController, which applies CanCanCan permissions throughout every controller. When I took this line out - and apply it instead to each Controller individually - the login/logout functionality seems to work. 
