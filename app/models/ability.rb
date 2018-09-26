@@ -4,6 +4,7 @@ class Ability
   def initialize(user)
     can :read, :all # permissions for every user, even if not logged in
     return unless user
+    can :create, TodoList
     can :create, Comment do |c|
       c.campaign.exists?
     end
